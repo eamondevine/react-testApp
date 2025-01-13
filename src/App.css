@@ -14,3 +14,13 @@
     font-size: 48px;
     color: yellowgreen;
   }
+
+  .blogs-display .font-effect-3d {
+    font-family: fantasy;
+    font-size: 48px;
+    color: slategray;
+  }
+
+  .italic {
+    font-style: italic;
+  }
