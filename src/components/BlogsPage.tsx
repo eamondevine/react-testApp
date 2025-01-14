@@ -3,7 +3,7 @@ import { useState } from "react";
 import BlogLoader from "./BlogLoader";
 
 const BlogsPage = () => {
-  const [blogs] = useState([
+  const [blogs, setBlogs] = useState([
     {
       title: "Pizza Bread",
       author: "Willem",
@@ -24,9 +24,23 @@ const BlogsPage = () => {
     },
   ]);
 
+  const handleDelete = (id: number) => {
+    const afterDelete = blogs.filter((blog) => blog.id !== id);
+    setBlogs(afterDelete);
+  };
+
+  const authorFilter = (author: string) => {
+    const filterAuthor = blogs.filter((blog) => blog.author === author);
+    setBlogs(filterAuthor);
+  };
+
   return (
     <>
-      <BlogLoader blogs={blogs} />
+      <BlogLoader
+        blogs={blogs}
+        handleDelete={handleDelete}
+        authorFilter={authorFilter}
+      />
     </>
   );
 };
