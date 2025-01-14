@@ -24,3 +24,15 @@
   .italic {
     font-style: italic;
   }
+
+  .sr-only {
+    display: none;
+  }
+
+  .fire-dood {
+    font-family: 'Rancho', serif;
+    font-size: 48px;
+    color: firebrick;
+  }
+
+ 
