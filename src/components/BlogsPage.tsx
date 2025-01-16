@@ -1,48 +1,21 @@
 // textholder
-import { useState } from "react";
+import { useState, useEffect } from "react"; //insert ,useEffect into the dynamic curly braces
 import BlogLoader from "./BlogLoader";
 
 const BlogsPage = () => {
-  const [blogs, setBlogs] = useState([
-    {
-      title: "Pizza Bread",
-      author: "Willem",
-      body: "Pizza lorem ipsum ...",
-      id: 1,
-    },
-    {
-      title: "Cookies",
-      author: "Eamon",
-      body: "Cookies lorem ipsum ...",
-      id: 2,
-    },
-    {
-      title: "Waffles",
-      author: "Marco",
-      body: "Waffles lorem ipsum ...",
-      id: 3,
-    },
-  ]);
+  const [blogs, setBlogs] = useState(null);
 
-  const handleDelete = (id: number) => {
-    const afterDelete = blogs.filter((blog) => blog.id !== id);
-    setBlogs(afterDelete);
-  };
+  useEffect(() => {
+    fetch("http://localhost:8000/blogs")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setBlogs(data);
+      });
+  }, []);
 
-  const authorFilter = (author: string) => {
-    const filterAuthor = blogs.filter((blog) => blog.author === author);
-    setBlogs(filterAuthor);
-  };
-
-  return (
-    <>
-      <BlogLoader
-        blogs={blogs}
-        handleDelete={handleDelete}
-        authorFilter={authorFilter}
-      />
-    </>
-  );
+  return <>{blogs && <BlogLoader blogs={blogs} />}</>;
 };
 
 export default BlogsPage;

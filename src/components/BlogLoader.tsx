@@ -9,15 +9,9 @@ interface Blog {
 
 interface BlogLoaderProps {
   blogs: Blog[];
-  handleDelete: (id: number) => void;
-  authorFilter: (author: string) => void;
 }
 
-const BlogLoader: React.FC<BlogLoaderProps> = ({
-  blogs,
-  handleDelete,
-  authorFilter,
-}) => {
+const BlogLoader: React.FC<BlogLoaderProps> = ({ blogs }) => {
   return (
     <>
       <div className="blogs-display text-center">
@@ -25,27 +19,6 @@ const BlogLoader: React.FC<BlogLoaderProps> = ({
           This is the Blogs Page
         </h1>
         <br />
-        <button
-          onClick={(e) =>
-            authorFilter((e.target as HTMLButtonElement).innerText)
-          }
-        >
-          Willem
-        </button>
-        <button
-          onClick={(e) =>
-            authorFilter((e.target as HTMLButtonElement).innerText)
-          }
-        >
-          Eamon
-        </button>
-        <button
-          onClick={(e) =>
-            authorFilter((e.target as HTMLButtonElement).innerText)
-          }
-        >
-          Marco
-        </button>
       </div>
 
       {blogs.map((blog) => (
@@ -64,7 +37,6 @@ const BlogLoader: React.FC<BlogLoaderProps> = ({
             {blog.body}
           </h3>
           <br />
-          <button onClick={() => handleDelete(blog.id)}>Delete</button>
           <hr />
           <br />
         </div>
