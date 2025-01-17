@@ -8,7 +8,7 @@ interface Blog {
 }
 
 interface BlogLoaderProps {
-  blogs: Blog[];
+  blogs: Blog[] | null;
 }
 
 const BlogLoader: React.FC<BlogLoaderProps> = ({ blogs }) => {
@@ -21,7 +21,7 @@ const BlogLoader: React.FC<BlogLoaderProps> = ({ blogs }) => {
         <br />
       </div>
 
-      {blogs.map((blog) => (
+      {blogs?.map((blog) => (
         <div className="single-blog-preview p-2" key={blog.id}>
           <hr />
           <h2>

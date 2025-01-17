@@ -4,6 +4,7 @@ import BlogLoader from "./BlogLoader";
 
 const BlogsPage = () => {
   const [blogs, setBlogs] = useState(null);
+  const [isPending, setIsPending] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:8000/blogs")
@@ -12,10 +13,16 @@ const BlogsPage = () => {
       })
       .then((data) => {
         setBlogs(data);
+        setIsPending(false);
       });
   }, []);
 
-  return <>{blogs && <BlogLoader blogs={blogs} />}</>;
+  return (
+    <>
+      {isPending && <div>Loading...</div>}
+      {blogs && <BlogLoader blogs={blogs} />}
+    </>
+  );
 };
 
 export default BlogsPage;
