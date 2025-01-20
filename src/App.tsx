@@ -1,10 +1,21 @@
+import BlogsPage from "./components/BlogsPage";
+import Home from "./components/Home";
+import ListGroup from "./components/ListGroup";
 import NavBar from "./components/NavBar";
+import { BrowserRouter as Browser, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <NavBar />
-    </div>
+    <Browser>
+      <div>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/ListGroup" element={<ListGroup />} />
+          <Route path="/BlogsPage" element={<BlogsPage />} />
+        </Routes>
+      </div>
+    </Browser>
   );
 }
 

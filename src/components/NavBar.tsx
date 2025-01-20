@@ -1,23 +1,7 @@
-import { useState } from "react";
-import ListGroup from "./ListGroup";
-import BlogsPage from "./BlogsPage";
-import Home from "./Home";
+/* import { useState } from "react"; */
 
 const NavBar = () => {
-  const [currentPage, setCurrentPage] = useState("home");
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case "home":
-        return <Home />;
-      case "list-group":
-        return <ListGroup />;
-      case "blogs-page":
-        return <BlogsPage />;
-      default:
-        return <Home />;
-    }
-  };
+  /* const [currentPage, setCurrentPage] = useState("home"); */
 
   return (
     <>
@@ -36,27 +20,26 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <button
-              onClick={() => setCurrentPage("home")}
+              /* onClick={() => setCurrentPage()} */
               className="nav-item nav-link"
             >
-              Home
+              TEXT
             </button>
             <button
-              onClick={() => setCurrentPage("list-group")}
+              /* onClick={() => setCurrentPage()} */
               className="nav-item nav-link"
             >
-              List Group
+              TEXT
             </button>
             <button
-              onClick={() => setCurrentPage("blogs-page")}
+              /* onClick={() => setCurrentPage()} */
               className="nav-item nav-link"
             >
-              Blog Page
+              TEXT
             </button>
           </div>
         </div>
       </nav>
-      <main>{renderPage()}</main>
     </>
   );
 };
