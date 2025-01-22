@@ -35,4 +35,11 @@
     color: firebrick;
   }
 
+  .router-nav-links {
+    text-decoration: none;
+    font-size: 3vh;
+    padding: 0 5px 0 5px;
+    color: darkslategrey;
+  }
+
  

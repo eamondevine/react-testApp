@@ -1,28 +1,37 @@
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
 const NavBar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <ul className="navbar-nav">
-          <Link to="/" className="nav-item nav-link">
-            Home
-          </Link>
-          <Link to="/ListGroup" className="nav-item nav-link">
-            Fonts
-          </Link>
-          <Link to="/BlogsPage" className="nav-item nav-link">
-            Blogs
-          </Link>
-          <Link to="/CreateNewBlog" className="nav-item nav-link">
-            New Blog
-          </Link>
-        </ul>
-      </nav>
+      <Navbar bg="light" data-bs-theme="light">
+        <Container>
+          <Navbar.Brand>React Test Page</Navbar.Brand>
+          <Nav className="me-auto">
+            <Link className="router-nav-links" to="/">
+              Home
+            </Link>
+            <Link className="router-nav-links" to="/ListGroup">
+              Fonts
+            </Link>
+            <Link className="router-nav-links" to="/BlogsPage">
+              Blogs
+            </Link>
+            <Link className="router-nav-links" to="/CreateNewBlog">
+              New Blog
+            </Link>
+          </Nav>
+        </Container>
+      </Navbar>
     </>
   );
 };
 
 export default NavBar;
+
+/*             <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link> */
