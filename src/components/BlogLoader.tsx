@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Blog {
   id: number;
@@ -24,18 +25,16 @@ const BlogLoader: React.FC<BlogLoaderProps> = ({ blogs }) => {
       {blogs?.map((blog) => (
         <div className="single-blog-preview p-2" key={blog.id}>
           <hr />
-          <h2>
-            <span className="italic">Title: </span>
-            {blog.title}
-          </h2>
-          <h3>
-            <span className="italic">Author: </span>
-            {blog.author}
-          </h3>
-          <h3>
-            <span className="italic">Blog: </span>
-            {blog.body}
-          </h3>
+          <Link className="single-blog-preview" to={`/BlogDetails/${blog.id}`}>
+            <h2>
+              <span className="italic">Title: </span>
+              {blog.title}
+            </h2>
+            <h3>
+              <span className="italic">Author: </span>
+              {blog.author}
+            </h3>
+          </Link>
           <br />
           <hr />
           <br />

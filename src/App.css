@@ -42,4 +42,6 @@
     color: darkslategrey;
   }
 
- 
+  .single-blog-preview {
+    text-decoration: none;
+  }
