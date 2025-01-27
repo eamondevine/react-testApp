@@ -6,6 +6,7 @@ const NewBlog = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [pending, setPending] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,9 +19,7 @@ const NewBlog = () => {
       body: JSON.stringify(blog),
     }).then(() => {
       setPending(false);
-      setTimeout(() => {
-        useNavigate("/");
-      });
+      navigate("/");
     });
   };
 
