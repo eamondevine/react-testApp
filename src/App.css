@@ -45,3 +45,23 @@
   .single-blog-preview {
     text-decoration: none;
   }
+
+  .create-blog {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .create-blog * {
+    margin: 15px 0 0 0;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .create-blog *:not(h1) {
+    font-weight: bolder;
+    font-size: large;
+  }
+
+  .round-butt {
+    border-radius: 12px;
+  }
