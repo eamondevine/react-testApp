@@ -12,7 +12,7 @@ const BlogsPage = () => {
     <>
       {error && <div>{error}</div>}
       {isPending && <div>Loading...</div>}
-      {blogs && <BlogLoader blogs={blogs} />}
+      {Array.isArray(blogs) && <BlogLoader blogs={blogs} />}
     </>
   );
 };

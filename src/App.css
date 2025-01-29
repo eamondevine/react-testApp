@@ -65,3 +65,26 @@
   .round-butt {
     border-radius: 12px;
   }
+
+  .div-message-alert {
+    font-size: 70px;
+    height: 200px;
+    width: 500px;
+    background-color: white;
+    animation: fadeOut 3s forwards; /* Fade-in and fade-out animation */
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

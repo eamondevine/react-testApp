@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import useFetch from "./useFetch";
+import { useNavigate } from "react-router-dom";
 
 //Object shape defined for typescript
 interface Blog {
@@ -15,6 +16,16 @@ const BlogDetails = () => {
     isPending,
     error,
   } = useFetch<Blog>(`http://localhost:8000/blogs/${id}`); //Reference to Blog object for typescript
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    fetch(`http://localhost:8000/blogs/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      navigate("/");
+    });
+  };
+
   return (
     <div className="blog-details d-flex justify-content-center">
       {isPending && <div>Loading...</div>}
@@ -25,6 +36,9 @@ const BlogDetails = () => {
           <br />
           <h2>{blog.title}</h2>
           <p>{blog.body}</p>
+          <button onClick={handleClick} className="round-butt">
+            DELETE
+          </button>
         </article>
       )}
     </div>

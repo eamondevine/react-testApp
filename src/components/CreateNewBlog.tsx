@@ -6,6 +6,7 @@ const NewBlog = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [pending, setPending] = useState(false);
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,8 +19,12 @@ const NewBlog = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),
     }).then(() => {
-      setPending(false);
-      navigate("/");
+      setMessage("Blog added!!!");
+      setTimeout(() => {
+        setPending(false);
+        navigate("/");
+        setMessage("");
+      }, 3000);
     });
   };
 
@@ -29,6 +34,7 @@ const NewBlog = () => {
       <form onSubmit={handleSubmit}>
         <label>Enter your name:</label>
         <br />
+        {message && <h1 className="div-message-alert">{message}</h1>}
         <input
           type="text"
           required
@@ -62,6 +68,8 @@ const NewBlog = () => {
             Submitting...
           </button>
         )}
+        <br />
+        <br />
       </form>
     </div>
   );
