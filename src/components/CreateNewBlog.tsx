@@ -62,12 +62,9 @@ const NewBlog = () => {
         <p>{author}</p>
         <p>{title}</p>
         <p>{body}</p>
-        {!pending && <button className="round-butt">Submit</button>}
-        {pending && (
-          <button disabled className="round-butt">
-            Submitting...
-          </button>
-        )}
+        <button className="round-butt" disabled={pending}>
+          {pending ? "Submitting..." : "Submit"}
+        </button>
         <br />
         <br />
       </form>
